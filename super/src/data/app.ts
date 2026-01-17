@@ -33,7 +33,7 @@ export const apps: Project[] = [
     assignment: "Assignment 02",
     title: "2. Even or Odd",
     description: "Modulus operator checker.",
-    link: "/day-02/even-odd",
+    link: "/work2/EvenOdd",
     date: "2026-01-18"
   },
   {
@@ -41,7 +41,7 @@ export const apps: Project[] = [
     assignment: "Assignment 02",
     title: "3. Age Calculator",
     description: "Birth year calc & voting eligibility.",
-    link: "/day-02/age-calc",
+    link: "/work2/AgeCalculator",
     date: "2026-01-18"
   },
   {
@@ -49,7 +49,7 @@ export const apps: Project[] = [
     assignment: "Assignment 02",
     title: "4. Grade Calculator",
     description: "Calculate percentage and grade.",
-    link: "/day-02/grade-calc",
+    link: "/work2/GradeCalculator",
     date: "2026-01-18"
   },
   {
@@ -57,7 +57,7 @@ export const apps: Project[] = [
     assignment: "Assignment 02",
     title: "5. Library Logic",
     description: "Logical operators challenge (&& || !).",
-    link: "/day-02/logic-challenge",
+    link: "/work2/LibraryLogic",
     date: "2026-01-18"
   }
 ];
