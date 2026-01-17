@@ -120,3 +120,89 @@ export default function ThreeShapes() {
     </div>
   );
 }
+/*** 
+// <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <title>3D Objects: Cube, Sphere, Prism</title>
+//     <style>
+//         body { margin: 0; overflow: hidden; }
+//         canvas { display: block; }
+//     </style>
+// </head>
+// <body>
+//     <script type="module">
+//         import * as THREE from 'https://cdn.skypack.dev/three@0.136.0';
+
+//         // 1. Scene Setup
+//         const scene = new THREE.Scene();
+//         scene.background = new THREE.Color(0x222222); // Dark grey background
+
+//         // 2. Camera Setup
+//         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+//         camera.position.z = 5;
+
+//         // 3. Renderer Setup
+//         const renderer = new THREE.WebGLRenderer({ antialias: true });
+//         renderer.setSize(window.innerWidth, window.innerHeight);
+//         document.body.appendChild(renderer.domElement);
+
+//         // 4. Lighting
+//         const light = new THREE.DirectionalLight(0xffffff, 1);
+//         light.position.set(0, 5, 5);
+//         scene.add(light);
+//         const ambientLight = new THREE.AmbientLight(0x404040); // Soft white light
+//         scene.add(ambientLight);
+
+//         // --- OBJECT 1: CUBE ---
+//         const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
+//         const cubeMaterial = new THREE.MeshPhongMaterial({ color: 0x00ff00 }); // Green
+//         const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+//         cube.position.x = -2.5; // Move Left
+//         scene.add(cube);
+
+//         // --- OBJECT 2: SPHERE ---
+//         const sphereGeometry = new THREE.SphereGeometry(0.7, 32, 32); // Radius, Segments
+//         const sphereMaterial = new THREE.MeshPhongMaterial({ color: 0xff0000 }); // Red
+//         const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+//         sphere.position.x = 0; // Center
+//         scene.add(sphere);
+
+//         // --- OBJECT 3: TRIANGULAR PRISM ---
+//         // A Cylinder with 3 radial segments creates a triangular prism
+//         const prismGeometry = new THREE.CylinderGeometry(0.7, 0.7, 1, 3); 
+//         const prismMaterial = new THREE.MeshPhongMaterial({ color: 0x0000ff }); // Blue
+//         const prism = new THREE.Mesh(prismGeometry, prismMaterial);
+//         prism.position.x = 2.5; // Move Right
+//         scene.add(prism);
+
+//         // 5. Animation Loop
+//         function animate() {
+//             requestAnimationFrame(animate);
+
+//             // Rotate objects
+//             cube.rotation.x += 0.01;
+//             cube.rotation.y += 0.01;
+
+//             sphere.rotation.y += 0.01;
+
+//             prism.rotation.x += 0.01;
+//             prism.rotation.y += 0.01;
+
+//             renderer.render(scene, camera);
+//         }
+
+//         animate();
+
+//         // Handle Window Resize
+//         window.addEventListener('resize', () => {
+//             camera.aspect = window.innerWidth / window.innerHeight;
+//             camera.updateProjectionMatrix();
+//             renderer.setSize(window.innerWidth, window.innerHeight);
+//         });
+//     </script>
+// </body>
+// </html>
+
+*/
