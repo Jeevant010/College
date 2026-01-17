@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 3: Vanilla JS</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Day 3: Plain HTML Project</h1>
+    <p id="demo">I am a plain HTML file served by Next.js!</p>
+    <button onclick="changeText()">Click Me</button>
+
+    <script>
+        function changeText() {
+            document.getElementById("demo").innerText = "You clicked the button!";
+            document.getElementById("demo").style.color = "red";
+        }
+    </script>
+</body>
+</html>
