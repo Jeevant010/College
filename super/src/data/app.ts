@@ -59,5 +59,13 @@ export const apps: Project[] = [
     description: "Logical operators challenge (&& || !).",
     link: "/work2/LibraryLogic",
     date: "2026-01-18"
-  }
+  },
+  {
+  id: 7, // Increment the ID
+  assignment: "Day 02",
+  title: "6. Three.js Shapes",
+  description: "Render 3D Cube, Sphere & Prism.",
+  link: "AVR/assignment1",
+  date: "2026-01-18"
+}
 ];
