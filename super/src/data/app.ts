@@ -67,5 +67,13 @@ export const apps: Project[] = [
   description: "Render 3D Cube, Sphere & Prism.",
   link: "AVR/assignment1",
   date: "2026-01-18"
+},
+{
+    id: 8,
+    assignment: "Day 03",
+    title: "jQuery Assignments",
+    description: "Selectors, Animations, and AJAX implementation.",
+    link: "/work3/index.html", // Links to the public HTML file
+    date: "2026-01-30"
 }
 ];

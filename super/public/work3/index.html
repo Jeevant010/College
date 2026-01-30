@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 03: jQuery Masterclass</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background-color: #f4f4f4; }
+        section { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; color: #333; }
+        .box { width: 100px; height: 100px; background: red; margin: 10px; display: inline-block; text-align: center; line-height: 100px; color: white; }
+        button { padding: 8px 15px; cursor: pointer; background: #007bff; color: white; border: none; border-radius: 4px; margin: 5px; }
+        button:hover { background: #0056b3; }
+        .highlight { border: 2px solid red; }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Day 03: jQuery Assignments</h1>
+    <p style="text-align: center;"><a href="/">← Back to Dashboard</a></p>
+
+    <section>
+        <h2>Task 1: Element Selector</h2>
+        <p>This paragraph will change styles.</p>
+        <p>This one will also change.</p>
+        <button id="btnTask1">Apply CSS to all &lt;p&gt;</button>
+    </section>
+
+    <section>
+        <h2>Task 2: ID Selector</h2>
+        <div id="uniqueBox" style="border: 1px solid #333; padding: 10px;">I am a generic Div.</div>
+        <button id="btnTask2">Manipulate #uniqueBox</button>
+    </section>
+
+    <section>
+        <h2>Task 3: Class Selector</h2>
+        <p class="multi-p">Paragraph 1 (Hover over me!)</p>
+        <p class="multi-p">Paragraph 2 (Click me!)</p>
+        <button id="btnTask3">Style .multi-p Class</button>
+    </section>
+
+    <section>
+        <h2>Task 4 & 5: Universal (*) & Group Selectors</h2>
+        <h3>I am an H3</h3>
+        <span>I am a Span</span>
+        <br>
+        <button id="btnTask4">Apply Universal (*)</button>
+        <button id="btnTask5">Group Style (h3, span)</button>
+    </section>
+
+    <section>
+        <h2>Task 6: Fade In & Animate Dimensions</h2>
+        <div id="animBox" style="width: 100px; height: 100px; background: orange; display: none;">Hidden</div>
+        <br>
+        <button id="btnTask6">Fade In & Grow</button>
+    </section>
+
+    <section>
+        <h2>Task 7 & 8: Slide & Toggle Effects</h2>
+        <div id="slideBox" class="box">Box</div>
+        <br>
+        <button onclick="$('#slideBox').slideUp()">Slide Up</button>
+        <button onclick="$('#slideBox').slideDown()">Slide Down</button>
+        <button onclick="$('#slideBox').slideToggle()">Slide Toggle</button>
+        <button onclick="$('#slideBox').hide()">Hide</button>
+        <button onclick="$('#slideBox').show()">Show</button>
+    </section>
+
+    <section>
+        <h2>Task 9: AJAX (Async Data)</h2>
+        <div id="apiResult" style="background: #eee; padding: 10px; min-height: 50px;">Waiting for data...</div>
+        <button id="btnTask9">Load Data from API</button>
+    </section>
+
+    <script>
+        $(document).ready(function(){
+            
+            // Task 1: Element Selector
+            $("#btnTask1").click(function(){
+                $("p").css({
+                    "color": "navy",
+                    "font-size": "18px",
+                    "font-family": "Arial",
+                    "background-color": "#e0f7fa"
+                });
+            });
+
+            // Task 2: ID Selector
+            $("#btnTask2").click(function(){
+                $("#uniqueBox").css("border", "3px dashed green")
+                             .text("Content Changed via jQuery!")
+                             .on("click", function(){ alert("Event Handled on ID!"); });
+            });
+
+            // Task 3: Class Selector
+            $("#btnTask3").click(function(){
+                $(".multi-p").css({
+                    "background-color": "yellow",
+                    "font-size": "20px",
+                    "border": "1px solid black"
+                });
+            });
+
+            // Task 3.3 & 3.4: Hover and Click
+            $(".multi-p").hover(
+                function(){ $(this).css("color", "red"); }, // Mouse Enter
+                function(){ $(this).css("color", "black"); } // Mouse Leave
+            );
+            $(".multi-p").click(function(){
+                $(this).text("You Clicked Me!");
+            });
+
+            // Task 4: Universal Selector
+            $("#btnTask4").click(function(){
+                $("*").css("cursor", "crosshair"); // Applies to EVERYTHING on page
+                alert("Universal Selector applied! Cursor changed to crosshair.");
+            });
+
+            // Task 5: Group Selector
+            $("#btnTask5").click(function(){
+                $("h3, span").css("background-color", "pink");
+            });
+
+            // Task 6: Fade In and Animate
+            $("#btnTask6").click(function(){
+                $("#animBox").fadeIn(1000).animate({
+                    width: "300px",
+                    height: "150px",
+                }, 1000).css("background-color", "purple"); 
+                // Note: animate() doesn't support background-color changes without UI plugin, used css() for simplicity
+            });
+
+            // Task 9: AJAX
+            $("#btnTask9").click(function(){
+                $("#apiResult").text("Loading...");
+                $.get("https://jsonplaceholder.typicode.com/posts/1", function(data, status){
+                    $("#apiResult").html("<strong>Title:</strong> " + data.title);
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
