@@ -75,5 +75,21 @@ export const apps: Project[] = [
     description: "Selectors, Animations, and AJAX implementation.",
     link: "/work3/index.html", // Links to the public HTML file
     date: "2026-01-30"
+},
+{
+    id: 9,
+    assignment: "Assignment 04",
+    title: "3. Personal Expense & Budget Analyzer",
+    description: "Track income & expenses, category breakdown, monthly summaries with visual bars.",
+    link: "/Assignment4/Expense",
+    date: "2026-02-15"
+},
+{
+    id: 10,
+    assignment: "Assignment 04",
+    title: "4. Student Attendance System",
+    description: "Mark, store & analyze student attendance with date-wise records & percentage tracking.",
+    link: "/Assignment4/Attendance",
+    date: "2026-02-15"
 }
 ];
