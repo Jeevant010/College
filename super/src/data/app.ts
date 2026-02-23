@@ -91,5 +91,13 @@ export const apps: Project[] = [
     description: "Mark, store & analyze student attendance with date-wise records & percentage tracking.",
     link: "/Assignment4/Attendance",
     date: "2026-02-15"
+},
+{
+    id: 11,
+    assignment: "Assignment 05",
+    title: "5. HTTP vs WebSocket Notifications",
+    description: "Comparing stateless HTTP Polling with real-time full-duplex WebSocket communication.",
+    link: "/Assignment5",
+    date: "2026-02-23"
 }
 ];

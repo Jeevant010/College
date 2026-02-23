@@ -1,33 +1,49 @@
 // src/app/page.tsx
 import Link from 'next/link';
-// We import 'apps' data. We don't strictly need to import 'Project' type here unless we use it explicitly.
 import { apps } from '../data/app'; 
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-50 p-10">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-4xl font-extrabold text-gray-900 mb-8 text-center">
-          My College Dashboard
-        </h1>
+    <main className="min-h-screen bg-[#0a0a0f] text-white p-6 md:p-12 font-sans selection:bg-indigo-500/30">
+      <div className="max-w-7xl mx-auto space-y-12">
+        <header className="text-center space-y-4 pt-10">
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 animate-pulse">
+            College Dashboard
+          </h1>
+          <p className="text-white/60 text-lg md:text-xl max-w-2xl mx-auto">
+            A premium collection of assignments, projects, and explorations.
+          </p>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-20">
           {apps.map((app) => (
-            <Link href={app.link} key={app.id} className="group block">
-              <article className="h-full bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl transition-all border border-gray-100">
+            <Link href={app.link} key={app.id} className="group block h-full">
+              <article className="h-full bg-white/5 border border-white/10 p-6 rounded-2xl shadow-lg hover:shadow-indigo-500/20 hover:bg-white/10 transition-all duration-300 backdrop-blur-xl relative overflow-hidden flex flex-col">
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-indigo-500 via-purple-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
                 <div className="flex justify-between items-start mb-4">
-                  <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2 py-1 rounded-full">
+                  <span className="text-xs font-semibold text-indigo-300 bg-indigo-900/40 border border-indigo-500/30 px-3 py-1 rounded-full">
+                    {app.assignment}
+                  </span>
+                  <span className="text-xs text-white/40 font-mono">
                     {app.date}
                   </span>
                 </div>
                 
-                <h2 className="text-xl font-bold text-gray-800 mb-2 group-hover:text-blue-600">
+                <h2 className="text-2xl font-bold text-white/90 mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-pink-400 transition-all">
                   {app.title}
                 </h2>
                 
-                <p className="text-gray-600 text-sm">
+                <p className="text-white/60 text-sm flex-grow">
                   {app.description}
                 </p>
+                
+                <div className="mt-6 flex items-center text-sm font-medium text-indigo-400 group-hover:text-pink-400 transition-colors">
+                  Explore Project
+                  <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
               </article>
             </Link>
           ))}
