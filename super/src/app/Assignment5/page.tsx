@@ -19,12 +19,15 @@ export default function Assignment5() {
 
   const socketRef = useRef<Socket | null>(null);
 
+  // Use environment variable for deployed server, fallback to localhost:3001
+  const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
+
   // HTTP Polling Logic
   useEffect(() => {
     const fetchNotifications = async () => {
       setHttpLoading(true);
       try {
-        const response = await fetch("http://localhost:3001/api/notifications");
+        const response = await fetch(`${SERVER_URL}/api/notifications`);
         const data = await response.json();
         if (data.success) {
           setHttpNotifications(data.data);
@@ -41,12 +44,12 @@ export default function Assignment5() {
     const interval = setInterval(fetchNotifications, 5000); // Poll every 5 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [SERVER_URL]);
 
   // WebSocket Logic
   useEffect(() => {
     // Connect to WebSocket server
-    socketRef.current = io("http://localhost:3001");
+    socketRef.current = io(SERVER_URL);
 
     socketRef.current.on("connect", () => {
       setIsConnected(true);
