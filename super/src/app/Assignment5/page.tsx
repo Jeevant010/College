@@ -19,10 +19,10 @@ export default function Assignment5() {
 
   const socketRef = useRef<Socket | null>(null);
 
-  // Use environment variable for deployed server, fallback to localhost:3001
+  
   const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3001";
 
-  // HTTP Polling Logic
+  
   useEffect(() => {
     const fetchNotifications = async () => {
       setHttpLoading(true);
@@ -36,19 +36,19 @@ export default function Assignment5() {
       } catch (error) {
         console.error("HTTP Fetch Error:", error);
       } finally {
-        setTimeout(() => setHttpLoading(false), 500); // Artificial delay to show loading state
+        setTimeout(() => setHttpLoading(false), 500); 
       }
     };
 
-    fetchNotifications(); // Initial fetch
-    const interval = setInterval(fetchNotifications, 5000); // Poll every 5 seconds
+    fetchNotifications(); 
+    const interval = setInterval(fetchNotifications, 5000); 
 
     return () => clearInterval(interval);
   }, [SERVER_URL]);
 
-  // WebSocket Logic
+  
   useEffect(() => {
-    // Connect to WebSocket server
+    
     socketRef.current = io(SERVER_URL);
 
     socketRef.current.on("connect", () => {
@@ -66,7 +66,7 @@ export default function Assignment5() {
     socketRef.current.on("notification", (newNotification: Notification) => {
       setWsNotifications((prev) => {
         const updated = [newNotification, ...prev];
-        return updated.slice(0, 10); // Keep only latest 10
+        return updated.slice(0, 10); 
       });
     });
 
@@ -118,7 +118,7 @@ export default function Assignment5() {
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white p-6 md:p-12 font-sans selection:bg-indigo-500/30">
       <div className="max-w-7xl mx-auto space-y-12">
-        {/* Header */}
+        
         <header className="text-center space-y-4">
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
@@ -135,10 +135,10 @@ export default function Assignment5() {
           </motion.p>
         </header>
 
-        {/* Dashboard Grid */}
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
-          {/* HTTP Polling Column */}
+          
           <div className="flex flex-col space-y-6">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 p-4">
@@ -184,7 +184,7 @@ export default function Assignment5() {
           </div>
 
 
-          {/* WebSocket Column */}
+          
           <div className="flex flex-col space-y-6">
             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl relative overflow-hidden">
                <div className="absolute top-0 right-0 p-4">
@@ -234,7 +234,7 @@ export default function Assignment5() {
         </div>
       </div>
       
-      {/* Global Style for scrollbar hiding/styling if needed */}
+      
       <style dangerouslySetInnerHTML={{__html: `
         .custom-scrollbar::-webkit-scrollbar {
           width: 6px;
