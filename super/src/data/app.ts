@@ -95,9 +95,9 @@ export const apps: Project[] = [
 {
     id: 11,
     assignment: "Assignment 05",
-    title: "5. HTTP vs WebSocket Notifications",
-    description: "Comparing stateless HTTP Polling with real-time full-duplex WebSocket communication.",
+    title: "5. REST API CRUD Operations",
+    description: "Perform GET, POST, PUT, and DELETE requests with custom JSON bodies, status codes, and response tracking.",
     link: "/Assignment5",
-    date: "2026-02-23"
+    date: "2026-03-17"
 }
 ];
