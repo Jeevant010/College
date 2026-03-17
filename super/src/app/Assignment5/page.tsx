@@ -32,7 +32,7 @@ export default function Assignment5() {
   const [showToast, setShowToast] = useState(false);
   const [toastMsg, setToastMsg] = useState("");
 
-  // Load history from session storage
+  
   useEffect(() => {
     const savedHistory = sessionStorage.getItem("api-history");
     if (savedHistory) {
@@ -158,7 +158,8 @@ export default function Assignment5() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-white flex flex-col font-sans selection:bg-indigo-500/30 overflow-hidden">
-      {/* Toast Notification */}
+      
+      
       <AnimatePresence>
         {showToast && (
           <motion.div 
@@ -172,7 +173,7 @@ export default function Assignment5() {
         )}
       </AnimatePresence>
 
-      {/* Top Header */}
+
       <header className="h-16 border-b border-white/10 bg-white/5 backdrop-blur-xl flex items-center justify-between px-6 shrink-0 z-50">
         <div className="flex items-center gap-4">
           <Link href="/" className="p-2 hover:bg-white/5 rounded-lg transition-colors group">
@@ -199,7 +200,8 @@ export default function Assignment5() {
       </header>
 
       <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar - History */}
+
+
         <motion.aside 
           initial={false}
           animate={{ width: isSidebarOpen ? 300 : 0, opacity: isSidebarOpen ? 1 : 0 }}
@@ -242,9 +244,9 @@ export default function Assignment5() {
           </div>
         </motion.aside>
 
-        {/* Main Workspace */}
+
         <main className="flex-1 flex flex-col overflow-hidden relative">
-          {/* Toggle Sidebar Button */}
+          
           <button 
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-12 bg-white/5 border border-l-0 border-white/10 rounded-r-lg flex items-center justify-center hover:bg-white/10 transition-colors z-40 shadow-xl"
@@ -253,7 +255,7 @@ export default function Assignment5() {
           </button>
 
           <div className="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6 pb-20">
-            {/* Request Bar */}
+            
             <div className="flex flex-col md:flex-row gap-3">
               <div className="flex-1 flex bg-white/5 border border-white/10 rounded-2xl overflow-hidden focus-within:border-indigo-500/50 transition-all shadow-lg">
                 <select 
@@ -297,7 +299,7 @@ export default function Assignment5() {
               </button>
             </div>
 
-            {/* Config Area */}
+
             <div className="bg-white/5 border border-white/10 rounded-3xl overflow-hidden flex flex-col min-h-[300px] backdrop-blur-xl">
               <div className="flex items-center justify-between border-b border-white/10 px-6">
                 <div className="flex">
@@ -376,7 +378,7 @@ export default function Assignment5() {
               </div>
             </div>
 
-            {/* Response Area */}
+
             <div className="space-y-4">
               <div className="flex items-center justify-between px-2">
                 <h3 className="text-sm font-semibold text-white/60 uppercase tracking-wider">Response</h3>
@@ -395,7 +397,7 @@ export default function Assignment5() {
                     <span className="text-white/30">|</span>
                     <span className="text-indigo-300">Time: {response?.time}ms</span>
                     <button 
-                      onClick={() => copyToClipboard(JSON.stringify(response.data, null, 2))}
+                      onClick={() => response && copyToClipboard(JSON.stringify(response.data, null, 2))}
                       className="ml-2 p-1.5 hover:bg-white/5 rounded text-indigo-400 transition-colors"
                       title="Copy Response Body"
                     >
@@ -428,16 +430,16 @@ export default function Assignment5() {
                 ) : (
                   <div className="flex-1 p-6 font-mono text-sm h-full max-h-[600px] overflow-y-auto custom-scrollbar bg-black/40">
                     <pre className="text-indigo-200 whitespace-pre-wrap">
-                      {typeof response.data === 'object' 
+                      {response && (typeof response.data === 'object' 
                         ? JSON.stringify(response.data, null, 2) 
-                        : response.data}
+                        : response.data)}
                     </pre>
                   </div>
                 )}
               </div>
             </div>
 
-            {/* Conclusion Section */}
+
             <motion.footer 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
